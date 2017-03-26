@@ -12,6 +12,7 @@ const compilerFactory = (env) => {
     extra: packageConfig.webpackExtra ?
       require(paths.inAppDir(packageConfig.webpackExtra))
       : []
+    proxy: packageConfig.webpackProxy
   }
   const config = createConfig(configOptions)
   return Webpack(config)
