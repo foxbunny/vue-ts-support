@@ -6,6 +6,9 @@
   "repository": "https://github.com/foxbunny/vue-ts-support.git",
   "author": "Hajime Yamasaki Vukelic <hayavuk@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@webpack-blocks/dev-server2": "^0.4.0",
     "@webpack-blocks/postcss": "^0.4.2",
