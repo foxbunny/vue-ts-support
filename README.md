@@ -13,7 +13,7 @@ you, without any warranties or promises.
 
 ## Goals and ideas
 
-The following are the guiding principles behind vue-support:
+The following are the guiding principles behind vue-ts-support:
 
 - One dependency
 - Easy configuration
