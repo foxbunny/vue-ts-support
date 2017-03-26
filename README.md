@@ -58,6 +58,15 @@ you can run to get started.
 
 `vue-ts-support` can be customized using options in the `package.json` file.
 
+All options for customizing `vue-ts-support` are under the `vueTS` key:
+
+    {
+      ....
+      "vueTS": {
+        .... <-- options go here
+      }
+    }
+
 ### Webpack configuration
 
 Webpack configuration can be customized to some extent. Before you do that,
@@ -66,24 +75,42 @@ however, you will want to get familiar with
 
 To customize webpack setup, you will define a module that exports an array of
 additional blocks. You will then point to this module in your `package.json`
-file. For example:
+file using the `webpackExtra` key. For example:
 
     {
       ....
-      "webpackExtra": "webpack.extra.js" 
+      "vueTS": {
+        "webpackExtra": "webpack.extra.js" 
+      }
     }
 
 ### Development server API proxy URL
 
-To add a proxy target URL, add a `webpackProxy` key to your `package.json`. For
+To add a proxy target URL, add a `proxy` key to your `package.json`. For
 example:
 
     {
       ....
-      "webpackProxy": "http://localhost:3000/"
+      "vueTS": {
+        "proxy": "http://localhost:3000/"
+      }
     }
 
 This URL will be available as `/api/` (not customizable) to your front end code.
+
+### Development server port
+
+The port on which the development server will listen can be changed using the
+`port` option in your `package.json`. By default, this port is 8080.
+
+    {
+      ....
+      "vueTS": {
+        "port": 8000
+      }
+    }
+
+**NOTE:** Port number is a numeric value, so do not quote it.
 
 ## TODO
 
