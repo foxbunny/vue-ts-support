@@ -54,6 +54,37 @@ into the application directory, and create a `.gitignore` file.
 Once the script is done, you will see a message showing a handful of commands
 you can run to get started.
 
+## Customization
+
+`vue-ts-support` can be customized using options in the `package.json` file.
+
+### Webpack configuration
+
+Webpack configuration can be customized to some extent. Before you do that,
+however, you will want to get familiar with
+[webpack-blocks](https://github.com/andywer/webpack-blocks).
+
+To customize webpack setup, you will define a module that exports an array of
+additional blocks. You will then point to this module in your `package.json`
+file. For example:
+
+    {
+      ....
+      "webpackExtra": "webpack.extra.js" 
+    }
+
+### Development server API proxy URL
+
+To add a proxy target URL, add a `webpackProxy` key to your `package.json`. For
+example:
+
+    {
+      ....
+      "webpackProxy": "http://localhost:3000/"
+    }
+
+This URL will be available as `/api/` (not customizable) to your front end code.
+
 ## TODO
 
 This is a list of items that are going to be in the final 1.0.0 release.
