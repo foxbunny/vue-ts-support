@@ -4,6 +4,13 @@ This package provides support tooling for managing a
 [Vue.js](https://vuejs.org/) project build. It is a quick way to get off the
 ground, but also a very opinionated one.
 
+## Status
+
+This project is in early development. It's currently a bit rough around the
+edges and may not provide the smooth experience offered by `create-react-app`
+and similar projects. It is published in the hope that it will be useful to
+you, without any warranties or promises.
+
 ## Goals and ideas
 
 The following are the guiding principles behind vue-support:
@@ -25,9 +32,38 @@ This is a list of supported technologies:
 - TypeScript (linting and type checking)
 - Single-file components
 - Autoprefixer
+- Jest unit testing
 
 ## Installation
 
 Install via NPM:
 
-    npm install --save-dev vue-ts-support
+    npm install --global vue-ts-support
+
+## Usage
+
+Create a directory where you want to init your Vue.js project. In the directory,
+run the following command:
+
+    create-vue-project
+
+This will run `npm init` in the directory and install `vue-ts-support` package
+as a development dependency. It will also copy the `vue-ts-support` template
+into the application directory, and create a `.gitignore` file.
+
+Once the script is done, you will see a message showing a handful of commands
+you can run to get started.
+
+## TODO
+
+This is a list of items that are going to be in the final 1.0.0 release.
+
+- [ ] More complete Jest support (e.g., .vue files)
+- [ ] Option to include vue-router and vuex out of the box
+- [ ] Option to scaffold i18n support
+- [ ] Scripts to update and/or enhance existing projects
+- [ ] Simple code generator scripts (e.g., generate .vue skeletons)
+- [ ] Eject command
+- [ ] Support CSS preprocessors
+- [ ] Babel fallback for those that don't want TypeScript
+- [ ] JSX support for those that need it
