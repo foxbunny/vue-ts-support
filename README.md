@@ -126,6 +126,7 @@ The port on which the development server will listen can be changed using the
 
 This is a list of items that are going to be in the final 1.0.0 release.
 
+- [ ] Allow creating projects in locations other than the current directory
 - [ ] More complete Jest support (e.g., .vue files)
 - [ ] Option to include vue-router and vuex out of the box
 - [ ] Option to scaffold i18n support
