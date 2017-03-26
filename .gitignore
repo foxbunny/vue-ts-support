@@ -1,0 +1,8 @@
+# Package management artifacts
+/node_modules
+/yarn.lock
+
+# Files used for testing
+/public
+/src
+/tsconfig.json
