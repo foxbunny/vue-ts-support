@@ -21,6 +21,7 @@ packageConfig.scripts = {
   'start': 'vue-run start',
   'build': 'vue-run build'
 }
+packageConfig.vueTS = {}
 fs.writeFileSync(PACKAGE_JSON, JSON.stringify(packageConfig, null, 2))
 
 // Copy template files

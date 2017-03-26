@@ -5,7 +5,7 @@ const WebpackDevServer = require('webpack-dev-server')
 const compilerFactory = require('./compiler')
 const paths = require('./paths')
 
-const port = compilerFactory.packageConfig.webpackPort || 8080
+const port = compilerFactory.options.port || 8080
 
 const compiler = compilerFactory('development')
 compiler.plugin('done', () => {
