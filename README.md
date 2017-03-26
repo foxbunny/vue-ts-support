@@ -36,7 +36,17 @@ This is a list of supported technologies:
 
 ## Installation
 
-Install via NPM:
+Before you can use `vue-ts-support` scripts, you will need to install
+[Yarn](https://www.npmjs.com/package/yarn). You don't need to use it but the
+script that scaffolds new projects will call it.
+
+    npm install --global yarn
+
+To install `vue-ts-support` package itself, you can use either yarn:
+
+    yarn global add vue-ts-support
+
+or npm:
 
     npm install --global vue-ts-support
 
