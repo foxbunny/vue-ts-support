@@ -3,6 +3,7 @@
 const fs = require('graceful-fs')
 const path = require('path')
 const cp = require('child_process')
+const chalk = require('chalk')
 
 const cpr = require('../util/cpr').cpr
 
@@ -14,10 +15,26 @@ const TEMPLATE_PATH = path.resolve(VUE_TS_PATH, 'template')
 const GITIGNORE_PATH = path.resolve(APP_PATH, '.gitignore')
 const PACKAGE_JSON = path.resolve(APP_PATH, 'package.json')
 
+function msg(s) {
+  console.log(
+    chalk.grey('create-vue-project:') +
+    ' ' +
+    chalk.cyan(s)
+  )
+}
+
+console.log(
+  chalk.green(`Creating Vue.js project in ${process.cwd()}`)
+)
+
+msg('Initializing project...')
 cp.execSync('yarn init', { stdio: 'inherit' })
+
+
+msg('Installing dependencies...')
 cp.execSync(`yarn add --dev jest file:${THIS_PATH}`, { stdio: 'inherit' })
 
-// Patch the application config
+msg('Configuring the project...')
 const packageConfig = require(PACKAGE_JSON)
 packageConfig.scripts = {
   'test': 'jest',
@@ -40,10 +57,11 @@ packageConfig.jest = {
 packageConfig.vueTS = {}
 fs.writeFileSync(PACKAGE_JSON, JSON.stringify(packageConfig, null, 2))
 
-// Copy template files
+msg('Copying template files...')
 cpr(TEMPLATE_PATH, APP_PATH)
 
 // Create gitignore file
+msg('Creating .gitignore file...')
 fs.writeFileSync(GITIGNORE_PATH, `
 # Packaging
 /node_modules
@@ -58,10 +76,10 @@ fs.writeFileSync(GITIGNORE_PATH, `
 `.trim())
 
 console.log(`
-Vue.js application initialized
+${chalk.green('Vue.js application initialized')}
 
-Start the app:          npm start
-Run unit tests:         npm test
-Build for production:   npm run build
+Start the app:          ${chalk.yellow('npm start')}
+Run unit tests:         ${chalk.yellow('npm test')}
+Build for production:   ${chalk.yellow('npm run build')}
 
 `)
