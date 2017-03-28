@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require('fs-extra')
+const fs = require('graceful-fs')
 const path = require('path')
 const cp = require('child_process')
+
+const cpr = require('../util/cpr').cpr
 
 const THIS_PATH = path.resolve(__dirname, '..')
 const APP_PATH = process.cwd()
@@ -39,7 +41,7 @@ packageConfig.vueTS = {}
 fs.writeFileSync(PACKAGE_JSON, JSON.stringify(packageConfig, null, 2))
 
 // Copy template files
-fs.copySync(TEMPLATE_PATH, APP_PATH)
+cpr(TEMPLATE_PATH, APP_PATH)
 
 // Create gitignore file
 fs.writeFileSync(GITIGNORE_PATH, `
