@@ -23,12 +23,17 @@ packageConfig.scripts = {
   'build': 'vue-run build'
 }
 packageConfig.jest = {
-  testRegex: '\\.(test|spec)\\.(ts|js)$',
+  testRegex: '.+\\.(test|spec)\\.(ts|js)$',
   moduleFileExtensions: ['js', 'ts', 'vue'],
   transform: {
-    '.ts': '<rootDir>/node_modules/ts-jest/preprocessor.js',
-    '.vue': '<rootDir>/node_modules/jest-vue-preprocessor',
-  }
+    '.+': '<rootDir>/node_modules/jest-webpack'
+  },
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '.+\\.(test|spec)\\.(ts|js)$',
+    '.+\\.vue$'
+  ],
+  notify: true
 }
 packageConfig.vueTS = {}
 fs.writeFileSync(PACKAGE_JSON, JSON.stringify(packageConfig, null, 2))
