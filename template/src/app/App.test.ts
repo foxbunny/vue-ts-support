@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './app'
+import App from './App.vue'
 
 test('App mounts without exceptions', () => {
   const Ctor = Vue.extend(App)
